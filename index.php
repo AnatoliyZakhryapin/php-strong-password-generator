@@ -1,3 +1,10 @@
+<?php
+
+//Lunghezza password
+$password_length = isset($_GET['password_length']) ? (int)$_GET['password_length'] : 0;
+var_dump($password_length);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +22,7 @@
                     <h1>Password</h1>
                     <form action="" method="GET">
                         <label for="cars">Choose a password:</label>
-                        <select name="length_password">
+                        <select name="password_length">
                             <option value="5">5</option>
                             <option value="10">10</option>
                             <option value="15">15</option>
