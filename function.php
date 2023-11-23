@@ -2,7 +2,6 @@
 
 //Lunghezza password
 $password_length = isset($_GET['password_length']) ? (int)$_GET['password_length'] : 0;
-var_dump($password_length);
 
 // Funzione per creare random index di un array
 function randomIndex($array){

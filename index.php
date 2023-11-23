@@ -17,7 +17,7 @@ include __DIR__ . '/function.php';
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h1>Password: <?php echo $password?></h1>
+                    <h1>Password : <?php echo $password?></h1>
                     <form action="" method="GET">
                         <label>Choose a password:</label>
                         <select name="password_length">
