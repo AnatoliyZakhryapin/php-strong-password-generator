@@ -4,12 +4,51 @@
 $password_length = isset($_GET['password_length']) ? (int)$_GET['password_length'] : 0;
 var_dump($password_length);
 
-$uppercase_letter = range('A','Z');
-$lowercase_letter = range('a','z');
-$array_number = range('0','9');
-$array_symbols = str_split("'[@_!#$%^&*()<>?/|}{~:]']");
+// Funzione per creare random index di un array
+function randomIndex($array){
+    $min = 0;
+    $max = count($array) - 1; 
+    $random_index = rand($min, $max);
+    return $random_index;
+}
 
-var_dump($array_symbols);
+// Funzione restituisce un elemento random di un array
+function getRandomElementArray($array) {
+    $index = randomIndex($array);
+    $element = $array[$index];
+    return $element;
+};
+
+// Funzione crea password in base alla lunghezza richiesta
+function getPassword($password_length){
+    // I dati da uttilizare per creazione del password
+    $uppercase_letter = range('A','Z');
+    $lowercase_letter = range('a','z');
+    $array_number = range('0','9');
+    $array_symbols = str_split("'[@_!#$%^&*()<>?/|}{~:]']");
+        
+    // Array con tutti i charateri da utilizzare per creare password
+    $array_charters = [
+        $uppercase_letter,
+        $lowercase_letter,
+        $array_number,
+        $array_symbols
+    ];
+
+    $password = [];
+    // Ciclo per assegnare un charattere diverso con ogni giro
+    for($i = 0; $i < $password_length; $i++){
+        $index_type_charter = randomIndex($array_charters);
+        // $charter = $array_charters[$index_type_charter][rand(0, count($array_charters[$index_type_charter]) - 1)];
+        $charter = getRandomElementArray($array_charters[$index_type_charter]);
+        array_push($password, $charter);
+    }
+
+    return $password;
+};
+
+// Password
+$password = implode("", getPassword($password_length));
 
 ?>
 <!DOCTYPE html>
@@ -26,9 +65,9 @@ var_dump($array_symbols);
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h1>Password</h1>
+                    <h1>Password: <?php print_r($password)?></h1>
                     <form action="" method="GET">
-                        <label for="cars">Choose a password:</label>
+                        <label>Choose a password:</label>
                         <select name="password_length">
                             <option value="5">5</option>
                             <option value="10">10</option>
