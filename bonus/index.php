@@ -36,7 +36,7 @@ if ($password) {
                                     step="1"
                                     default value="1"
                                     id="customRange3">
-                                <input type="submit" value="Genera">
+                                <input type="submit" value="Genera" class="btn btn-primary">
                             </form>
                         </div>
                     </div>
