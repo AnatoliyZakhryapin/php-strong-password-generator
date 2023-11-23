@@ -4,6 +4,13 @@
 $password_length = isset($_GET['password_length']) ? (int)$_GET['password_length'] : 0;
 var_dump($password_length);
 
+$uppercase_letter = range('A','Z');
+$lowercase_letter = range('a','z');
+$array_number = range('0','9');
+$array_symbols = str_split("'[@_!#$%^&*()<>?/|}{~:]']");
+
+var_dump($array_symbols);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
